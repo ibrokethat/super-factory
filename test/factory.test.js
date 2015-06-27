@@ -2,7 +2,7 @@
 
 import assert from 'assert';
 import sinon from 'sinon';
-import underTest from '../src/factory';
+import underTest from '../index';
 
 import {expect} from 'chai';
 
@@ -33,23 +33,32 @@ describe("test factory module: ", () => {
     expect(underTest(items, 4)).to.be.equal(160);
   });
 
-  it('should should throw if items supplied are not in a Map', () => {
+  it('should throw if items supplied are not in a Map', () => {
 
     expect(() => underTest([], 1)).to.throw;
   });
 
-  it('should should throw if matchers are not functions', () => {
+  it('should throw if matchers are not functions', () => {
 
     items.set({}, () => {});
 
     expect(() => underTest(items, 5)).to.throw;
   });
 
-  it('should should throw if fns are not functions', () => {
+  it('should throw if fns are not functions', () => {
 
     items.set(() => {}, {});
 
     expect(() => underTest(items, 5)).to.throw;
+  });
+
+
+  it('should curry correctly', () => {
+
+    let fn = underTest(items);
+
+    expect(fn(4)).to.be.equal(160);
+
   });
 
 

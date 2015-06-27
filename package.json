@@ -1,16 +1,17 @@
 {
-  "name": "@ibrokethat/super-factory",
-  "description": "super factories the functional way",
-  "version": "1.0.0",
+  "name": "@ibrokethat/factory",
+  "description": "factories the functional way",
+  "version": "1.0.1",
   "author": "si@ibrokethat.com",
   "contributors": [
     { "name": "Simon Jefford", "email": "si@ibrokethat.com" }
   ],
   "dependencies": {
-    "@ibrokethat/super-iter": "^1.0.0"
+    "@ibrokethat/curry": "1.0.x",
+    "@ibrokethat/iter": "1.0.x",
+    "babel": "5.0.x"
   },
   "devDependencies": {
-    "babel": "^4.5.5",
     "chai": "latest",
     "mocha": "latest",
     "sinon": "latest"
@@ -23,13 +24,15 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:ibrokethat/factory"
+    "url": "git@github.com:ibrokethat/super-factory"
   },
-  "main": "lib/factory.js",
+  "main": "lib/index.js",
   "scripts": {
-    "prepublish": "npm prune",
-    "build":"./node_modules/.bin/babel --blacklist regenerator,es6.forOf src --out-dir lib" ,
-    "test": "./node_modules/.bin/mocha --compilers js:./test/babel --blacklist regenerator,es6.forOf --harmony --colors --recursive -R spec --ui bdd ./test/**/*.test.js --NODE_ENV=test"
+    "build":"./node_modules/.bin/babel ./*.js --out-dir lib --source-maps" ,
+    "build-watch":"./node_modules/.bin/babel ./*.js --out-dir lib --source-maps -w" ,
+    "prepublish" : "npm prune",
+    "postinstall" : "npm run build",
+    "test": "./node_modules/.bin/mocha --compilers js:babel/register --harmony --colors --recursive -R spec --ui bdd ./test/**/*.test.js --NODE_ENV=test"
   },
   "engines": {
     "node": "0.12.x"

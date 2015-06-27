@@ -1,0 +1,8 @@
+{
+    "blacklist" : ["regenerator", "es6.forOf"],
+    "comments" : true,
+    "loose" : "all",
+    "sourceMaps" : true,
+    "sourceRoot" : "./",
+    "stage" : 0
+}

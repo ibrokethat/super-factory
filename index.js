@@ -1,8 +1,15 @@
 "use strict";
 
-import {find} from 'super-iter';
+import {find} from '@ibrokethat/iter';
+import curry from '@ibrokethat/curry';
 
-export default function factory (items, data) {
+
+export default function factory (...args) {
+
+  return _factory(...args);
+}
+
+let _factory = curry(function _factory (items, data, ...args) {
 
 
   if (!(items instanceof Map)) {
@@ -18,7 +25,7 @@ export default function factory (items, data) {
       throw new TypeError(`factory expects ${matcher} to be a function`);
     }
 
-    if (matcher(data)) {
+    if (matcher(data, ...args)) {
 
       return true;
     }
@@ -33,5 +40,5 @@ export default function factory (items, data) {
   }
 
 
-  return fn(data);
-}
+  return fn(data, ...args);
+});
