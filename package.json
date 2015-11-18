@@ -1,22 +1,22 @@
 {
   "name": "@ibrokethat/factory",
   "description": "factories the functional way",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "si@ibrokethat.com",
   "contributors": [
     { "name": "Simon Jefford", "email": "si@ibrokethat.com" }
   ],
   "dependencies": {
     "@ibrokethat/curry": "1.0.x",
-    "@ibrokethat/iter": "1.0.x",
+    "@ibrokethat/iter": "1.0.x"
+  },
+  "devDependencies": {
     "babel": "^6.1.18",
     "babel-cli": "^6.1.18",
     "babel-plugin-transform-es2015-arrow-functions": "^6.1.18",
     "babel-plugin-transform-es2015-destructuring": "^6.1.18",
     "babel-plugin-transform-es2015-parameters": "^6.1.18",
-    "babel-plugin-transform-es2015-spread": "^6.1.18"
-  },
-  "devDependencies": {
+    "babel-plugin-transform-es2015-spread": "^6.1.18",
     "babel-core": "^6.1.21",
     "chai": "latest",
     "mocha": "latest",
@@ -36,8 +36,7 @@
   "scripts": {
     "build":"./node_modules/.bin/babel ./*.js --out-dir lib --source-maps" ,
     "build-watch":"./node_modules/.bin/babel ./*.js --out-dir lib --source-maps -w" ,
-    "prepublish" : "npm prune",
-    "postinstall" : "npm run build",
+    "prepublish": "npm prune && npm run build",
     "test": "./node_modules/.bin/mocha --compilers js:babel-core/register --harmony --colors --recursive -R spec --ui bdd ./test/**/*.test.js --NODE_ENV=test"
   },
   "engines": {
