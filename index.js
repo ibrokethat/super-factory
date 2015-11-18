@@ -1,15 +1,15 @@
 "use strict";
 
-import {find} from '@ibrokethat/iter';
-import curry from '@ibrokethat/curry';
+const {find} = require('@ibrokethat/iter');
+const curry = require('@ibrokethat/curry');
 
 
-export default function factory (...args) {
+module.exports = function factory (...args) {
 
   return _factory(...args);
 }
 
-let _factory = curry(function _factory (items, data, ...args) {
+const _factory = curry(function _factory (items, data, ...args) {
 
 
   if (!(items instanceof Map)) {

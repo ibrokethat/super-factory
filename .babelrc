@@ -1,8 +1,11 @@
 {
-    "blacklist" : ["regenerator", "es6.forOf"],
-    "comments" : true,
-    "loose" : "all",
-    "sourceMaps" : true,
-    "sourceRoot" : "./",
-    "stage" : 0
+  "plugins" : [
+    "transform-es2015-destructuring",
+    "transform-es2015-parameters",
+    "transform-es2015-spread",
+    "transform-es2015-arrow-functions"
+  ],
+  "comments" : true,
+  "sourceMaps" : true,
+  "sourceRoot" : "./"
 }

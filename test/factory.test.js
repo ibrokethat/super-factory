@@ -1,10 +1,9 @@
 "use strict";
 
-import assert from 'assert';
-import sinon from 'sinon';
-import underTest from '../index';
+let sinon = require('sinon');
+let underTest = require('../index');
 
-import {expect} from 'chai';
+let expect = require('chai').expect;
 
 let fakes;
 let items;
