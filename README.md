@@ -26,7 +26,7 @@
 
   console.log(fac(1)); // -> 1
   console.log(fac(2)); // -> 4
-  console.log(fac(1)); // -> 27
+  console.log(fac(3)); // -> 27
 
   ```
 
